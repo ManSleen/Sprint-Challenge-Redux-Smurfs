@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
+
 import { fetchSmurfs } from "../actions";
-import Smurf from "./Smurf";
+import Smurfs from "./Smurfs";
 import SmurfForm from "./SmurfForm";
+import NavBar from "./NavBar";
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -15,23 +18,22 @@ class App extends Component {
     this.props.fetchSmurfs();
   }
 
-  addSmurf = props => {};
-
   render() {
     console.log("Props in APP: ", this.props);
     return (
       <div className="App">
+        <NavBar />
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <div>Welcome to your Redux version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
+
+        <Route exact path="/" render={props => <Smurfs {...props} />} />
         <div className="Smurfs">
-          <SmurfForm />
-          <div className="smurfs-container">
-            {this.props.smurfs.map(smurf => {
-              return <Smurf key={smurf.name} smurf={smurf} />;
-            })}
-          </div>
+          <Route
+            path="/smurf-form"
+            render={props => <SmurfForm {...props} />}
+          />
         </div>
       </div>
     );

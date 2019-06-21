@@ -29,6 +29,7 @@ class SmurfForm extends React.Component {
       age: "",
       height: ""
     });
+    this.props.history.push("/");
   };
 
   render() {
