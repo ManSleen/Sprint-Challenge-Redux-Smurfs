@@ -42,6 +42,19 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
         error: "You've encountered an error!"
       };
+    case ADD_SMURF:
+      return {
+        ...state,
+        smurfs: action.payload,
+        addingSmurf: true,
+        isLoading: false,
+        error: ""
+      };
+    case ADD_SMURF_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }
