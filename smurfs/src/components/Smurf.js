@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteSmurf } from "../actions";
 
 const Smurf = props => {
+  console.log(props);
   return (
     <div className="Smurf">
       <div className="smurf-card-top">

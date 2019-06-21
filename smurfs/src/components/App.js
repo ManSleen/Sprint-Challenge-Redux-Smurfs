@@ -6,6 +6,7 @@ import "./App.css";
 import { fetchSmurfs } from "../actions";
 import Smurfs from "./Smurfs";
 import SmurfForm from "./SmurfForm";
+import UpdateSmurfForm from "./UpdateSmurfForm";
 import NavBar from "./NavBar";
 /*
  to wire this component up you're going to need a few things.
@@ -28,11 +29,21 @@ class App extends Component {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
 
-        <Route exact path="/" render={props => <Smurfs {...props} />} />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Smurfs {...props} setUpdateForm={this.setUpdateForm} />
+          )}
+        />
         <div className="Smurfs">
           <Route
             path="/smurf-form"
             render={props => <SmurfForm {...props} />}
+          />
+          <Route
+            path="/edit-smurf-form"
+            render={props => <UpdateSmurfForm {...props} />}
           />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Smurf from "./Smurf";
 import { connect } from "react-redux";
-import { fetchSmurfs } from "../actions";
+import { fetchSmurfs, setUpdateForm } from "../actions";
 
 class Smurfs extends React.Component {
   render() {
@@ -29,5 +29,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchSmurfs }
+  { fetchSmurfs, setUpdateForm }
 )(Smurfs);

@@ -16,6 +16,8 @@ export const DELETE_SMURF = "DELETE_SMURF";
 export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS";
 export const DELETE_SMURF_FAILURE = "DELETE_SMURF_FAILURE";
 
+export const UPDATE_SMURF = "UPDATE_SMURF";
+
 export const fetchSmurfs = () => dispatch => {
   dispatch({ type: FETCH_SMURFS_START });
   axios
@@ -49,6 +51,23 @@ export const deleteSmurf = id => dispatch => {
     .then(res => {
       console.log(res);
       dispatch({ type: DELETE_SMURF, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const setUpdateForm = (e, smurf) => {
+  e.preventDefault();
+  this.setState;
+};
+
+export const updateSmurf = id => dispatch => {
+  axios
+    .put(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: UPDATE_SMURF, payload: res.data });
     })
     .catch(err => {
       console.log(err);
